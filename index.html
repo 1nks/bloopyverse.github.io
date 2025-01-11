@@ -1,38 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BloopyVerse</title>
+  <style>
+    body {
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      background-color: #fce4ec;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+    .container {
+      background: #fff3f8;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      max-width: 400px;
+      width: 90%;
+    }
+    h1 {
+      font-size: 2em;
+      color: #d81b60;
+    }
+    .form-title {
+      font-size: 1.2em;
+      color: #ec407a;
+    }
+    form {
+      margin: 20px 0;
+    }
+    input[type="text"], input[type="password"] {
+      width: 90%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 2px solid #f8bbd0;
+      border-radius: 10px;
+      outline: none;
+      font-size: 1em;
+      background-color: #fff;
+    }
+    input[type="submit"] {
+      width: 50%;
+      padding: 10px;
+      border: none;
+      border-radius: 10px;
+      background: #f48fb1;
+      color: #fff;
+      font-size: 1em;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    input[type="submit"]:hover {
+      background: #ec407a;
+    }
+    .switch-form {
+      margin-top: 10px;
+      color: #d81b60;
+      font-size: 0.9em;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Bloopyverse</h1>
+    <!-- Login Form -->
+    <div id="login-form">
+      <div class="form-title">Login to Your Account</div>
+      <form action="/login" method="POST">
+        <input type="text" name="username" placeholder="Enter your username" required><br>
+        <input type="password" name="password" placeholder="Enter your password" required><br>
+        <input type="submit" value="Login"><br>
+      </form>
+      <div class="switch-form">
+        Don't have an account? <a href="#" onclick="toggleForms()">Sign up here!</a>
+      </div>
+    </div>
+    
+    <!-- SignUp Form -->
+    <div id="signup-form" style="display:none;">
+      <div class="form-title">Create a New Account</div>
+      <form action="/signup" method="POST">
+        <input type="text" name="username" placeholder="Choose a username" required><br>
+        <input type="password" name="password" placeholder="Choose a password" required><br>
+        <input type="submit" value="Sign Up"><br>
+      </form>
+      <div class="switch-form">
+        Already have an account? <a href="#" onclick="toggleForms()">Login here!</a>
+      </div>
+    </div>
+  </div>
 
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Login - My Social Media</title>
-        <link rel="stylesheet" href="styles.css">
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Montserrat:wght@700&display=swap" rel="stylesheet">
-    </head>
-    <body>
-        <div id="app">
-            <header>
-                <h1>Login</h1>
-                <nav>
-                    <a href="signup.html">Sign Up</a>
-                    <a href="index.html">Feed</a>
-                </nav>
-            </header>
-            <main>
-                <section id="login" class="card">
-                    <h2>Login</h2>
-                    <form id="login-form">
-                        <label for="login-email">Email:</label>
-                        <input type="email" id="login-email" name="email" required>
-                        <label for="login-password">Password:</label>
-                        <input type="password" id="login-password" name="password" required>
-                        <button type="submit">Login</button>
-                    </form>
-                </section>
-            </main>
-            <footer>
-                <p>&copy; 2024 My Social Media</p>
-            </footer>
-        </div>
-        <script src="auth.js"></script>
-    </body>
-    </html>
+  <script>
+    function toggleForms() {
+      var loginForm = document.getElementById('login-form');
+      var signupForm = document.getElementById('signup-form');
+      
+      if (loginForm.style.display === "none") {
+        loginForm.style.display = "block";
+        signupForm.style.display = "none";
+      } else {
+        loginForm.style.display = "none";
+        signupForm.style.display = "block";
+      }
+    }
+  </script>
+</body>
+</html>
